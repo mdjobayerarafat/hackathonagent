@@ -1,0 +1,148 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 33% 98%;
+    --foreground: 222 47% 11%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+    --primary: 243 75% 59%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 220 20% 96%;
+    --secondary-foreground: 222 47% 16%;
+    --muted: 220 20% 96%;
+    --muted-foreground: 215 16% 47%;
+    --accent: 243 100% 97%;
+    --accent-foreground: 243 65% 45%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 220 16% 91%;
+    --input: 220 16% 89%;
+    --ring: 243 75% 59%;
+    --radius: 0.85rem;
+    --font-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+      "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+    --font-display: "Segoe UI", ui-sans-serif, system-ui, -apple-system, "PingFang SC",
+      "Microsoft YaHei", sans-serif;
+  }
+
+  .dark {
+    --background: 224 44% 6%;
+    --foreground: 210 34% 96%;
+    --card: 222 40% 9%;
+    --card-foreground: 210 34% 96%;
+    --popover: 222 40% 9%;
+    --popover-foreground: 210 34% 96%;
+    --primary: 239 84% 67%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 222 32% 14%;
+    --secondary-foreground: 210 30% 92%;
+    --muted: 222 32% 14%;
+    --muted-foreground: 215 20% 65%;
+    --accent: 239 40% 17%;
+    --accent-foreground: 228 96% 89%;
+    --destructive: 0 65% 55%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 222 28% 17%;
+    --input: 222 28% 20%;
+    --ring: 239 84% 67%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: var(--font-sans);
+    background-image:
+      radial-gradient(1100px 500px at 50% -260px, hsl(var(--primary) / 0.12), transparent 65%),
+      radial-gradient(700px 420px at 100% 0%, hsl(263 90% 66% / 0.06), transparent 60%);
+    background-attachment: fixed;
+    min-height: 100vh;
+  }
+
+  .dark body {
+    background-image:
+      radial-gradient(1100px 520px at 50% -260px, hsl(var(--primary) / 0.2), transparent 65%),
+      radial-gradient(700px 420px at 100% 0%, hsl(263 90% 66% / 0.09), transparent 60%);
+  }
+
+  ::selection {
+    background: hsl(var(--primary) / 0.22);
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--muted-foreground) / 0.3);
+    border-radius: 999px;
+    border: 3px solid transparent;
+    background-clip: padding-box;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .glass {
+    @apply border border-border/70 bg-background/80 backdrop-blur-xl;
+  }
+
+  .price-chip {
+    background: linear-gradient(135deg, hsl(38 92% 50% / 0.16), hsl(28 92% 56% / 0.1));
+    color: hsl(28 85% 32%);
+    border: 1px solid hsl(38 92% 50% / 0.25);
+  }
+
+  .dark .price-chip {
+    color: hsl(38 96% 70%);
+    background: linear-gradient(135deg, hsl(38 92% 50% / 0.16), hsl(28 92% 56% / 0.08));
+    border-color: hsl(38 92% 50% / 0.2);
+  }
+
+  .hero-grid {
+    background-image: linear-gradient(hsl(var(--border) / 0.55) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--border) / 0.55) 1px, transparent 1px);
+    background-size: 36px 36px;
+    mask-image: radial-gradient(ellipse 70% 60% at 50% 30%, black 30%, transparent 75%);
+  }
+
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .no-scrollbar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}

@@ -1,0 +1,1 @@
+DATABASE_URL=postgres://postgres:Mejobayer2022@20.196.136.237:5432/
